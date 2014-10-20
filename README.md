@@ -11,4 +11,4 @@
 > [**db**](https://github.com/hwshang/doc.s/db)
 
 
-> [**git**](https://github.com/hwshang/doc.s/git)
+> [**git**](https://github.com/hwshang/doc.s/blob/master/git/readme.md)
