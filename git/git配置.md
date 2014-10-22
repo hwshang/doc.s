@@ -7,7 +7,7 @@ Git的配置分三个级别(优先级从上向下，高级别配置会覆盖低�
 
 | 级别  |配置文件路径   |别名   |适用范围   |
 | :---: | :----: | :---: |:---: |
-|版本库 |项目目录下.git/config| |当前项目有效   |
+|版本库 |项目目录下.git/config|local |当前项目有效   |
 |全局   |~/.gitconfig   |global |当前用户中所有项目 |
 |系统级 |/etc/gitconfig |system |其当系统中所有用户 |
 
@@ -34,3 +34,13 @@ color.branch=auto
 ...
 ...
 ```
+
+也可用过`git config 选项`命令来查看配置对应参数：
+
+```
+$ git config user.name
+hwshang
+```
+
+> 命令详细用法见`git config --help`,也可查看到更详细的配置选项。
+
