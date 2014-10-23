@@ -16,15 +16,25 @@
 文件：
 
 `HEAD` 项目当前所处分支
+
 `branches` 
+
 `config` 项目配置文件
+
 `description` 项目描述信息
+
 `hooks` 项目的钩子脚本
+
 `index` 项目文件的状态，使用`git ls-files --stage`命令其查看内容
+
 `info` 
+
 `logs` 各refs的历史信息
+
 `objects` 本地仓库的数据
+
 `packed-refs` 
+
 `refs` 关联分支和提交信息
 
 
