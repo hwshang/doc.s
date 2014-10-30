@@ -2,17 +2,25 @@
 
 ---
 
-> [**基础**](https://github.com/hwshang/doc.s/blob/master/git/git%E5%9F%BA%E7%A1%80.md)
+[**基础**](https://github.com/hwshang/doc.s/blob/master/git/git基础.md)
+git基础知识介绍
 
-> [**配置**](https://github.com/hwshang/doc.s/blob/master/git/git%E9%85%8D%E7%BD%AE.md)
 
-> [**工作区**](https://github.com/hwshang/doc.s/blob/master/git/git%E5%B7%A5%E4%BD%9C%E5%8C%BA.md)
+[**配置**](https://github.com/hwshang/doc.s/blob/master/git/git配置.md)
+git配置方法
 
-> [**操作第一层**](https://github.com/hwshang/doc.s/blob/master/git/git操作第一层.md)
+[**工作区**](https://github.com/hwshang/doc.s/blob/master/git/git工作区.md)
+工作区介绍
 
-> [**分支**](https://github.com/hwshang/doc.s/git/git分支.md)
+[**操作第一层**](https://github.com/hwshang/doc.s/blob/master/git/git操作第一层.md)
+包含克隆，跟踪，提交，删除，移动，忽略
 
-> [**应用**](https://github.com/hwshang/doc.s/git/git基础.md)
+[**操作第二层**](https://github.com/hwshang/doc.s/blob/master/git/git操作第二层.md)
+包含状态信息，比较，日志
+
+[**分支**](https://github.com/hwshang/doc.s/git/git分支.md)
+
+[**应用**](https://github.com/hwshang/doc.s/git/git基础.md)
 
 
 ---
