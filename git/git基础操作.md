@@ -137,4 +137,60 @@ $ git commit -m "rename db to newdb"
  rename db => newdb (100%)
 ```
 
-此操作对与git来说分三步： `mv db newdb` , `git rm db` , `git add newdb` 。所以对git元数据来说，移动/更名是删除+添加的操作集合。
+此操作对与git来说分三步： `mv db newdb` + `git rm db` + `git add newdb` 。所以对git元数据来说，移动/更名是删除+添加的操作集合。
+
+### 忽略文件
+
+```
+$ cat .gitignore 
+*.log
+logs/
+```
+在版本库中屏蔽掉临时文件，使用 `.gitignore` 隐藏文件来匹配，提交此文件到版本库中对其他的客户端也有效（称为共享式），否则只对本地版本库有效。
+> - `.gitignore`文件可放在工作区的任何目录下，它的作用范围是当前目录和子目录。
+> -  忽略只对未跟踪文件有效，已加入版本库的文件无效
+
+```
+$ ls logs/
+1  1.log
+
+$ git status -s --ignored
+!! css/css.log
+!! js/a.log
+!! logs/
+```
+
+使用`--ignored` 参数可以查看到被忽略的文件和目录。（通过上边的例子可以看到对与`logs/` 目录下的所有的文件，只显示了`logs/`）
+
+
+***添加忽略中的指定文件***
+
+```
+$ git add -f logs/1
+$ git status
+ On branch master
+ Your branch is ahead of 'origin/master' by 1 commit.
+   (use "git push" to publish your local commits)
+
+ Changes to be committed:
+   (use "git reset HEAD <file>..." to unstage)
+
+	new file:   logs/1
+```
+
+`logs/1` 文件已经匹配到了 `.gitignore` 文件中的 `logs/` ，这时候想要添加需要使用 `git add -f <file>` 来操作。
+
+***本地独享式忽略***
+
+ - 针对具体版本库：在.git目录下的 `.git/info/exclude` 文件中设置
+ - 全局性的忽略：通过配置变量 `git config --global core.excludesfile <ifnorefile>` 指定忽略文件来配置，对本地所有版本
+ 
+
+***`.gitignore`的格式规范 ***
+
+- 所有空行或者以注释符号 ＃ 开头的行都会被 Git 忽略。
+- 可以使用标准的 glob 模式匹配，即 * 代表任意多个字符，? 代表一个字符， [] 代表可选字符。
+- 匹配模式最前边跟反斜杠（/）说明要忽略的文件在此目录下。
+- 匹配模式最后跟反斜杠（/）说明要忽略的是目录。
+- 要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反。
+
