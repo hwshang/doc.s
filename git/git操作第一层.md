@@ -139,6 +139,8 @@ $ git commit -m "rename db to newdb"
 
 此操作对与git来说分三步： `mv db newdb` + `git rm db` + `git add newdb` 。所以对git元数据来说，移动/更名是删除+添加的操作集合。
 
+---
+
 ### 忽略文件
 
 ```
