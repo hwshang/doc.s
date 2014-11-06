@@ -158,3 +158,65 @@ $ git push origin :test
 ```
 
 此条推送命令中没有指定本地分支，则代表把 **空** 推送到远程之后会 **删除** origin的test分支。
+
+---
+
+### 分支操作原理
+
+```
+$ git branch issue1
+
+$ cat .git/refs/heads/issue1 
+73634bc0a03bd468325f406f9660323000d96ce3
+
+$ cat .git/logs/refs/heads/issue1
+0000000000000000000000000000000000000000 73634bc0a03bd468325f406f9660323000d96ce3 shanghw <hwshang@yeah.net> 1415267709 +0800	branch: Created from master
+```
+
+创建分支:
+
+- 在`.git/refs/heads/issue1` 下创建一个分支命名的文件，内容为分支的commit对象ID。
+- `.git/logs/refs/heads/issue1` 文件记录了分支的log信息，第一列是父对象的ID，因为此分支刚创建，所以第一个commit对象无父对象。
+
+```
+$ git checkout issue1
+Switched to branch 'issue1'
+
+$ cat .git/HEAD 
+ref: refs/heads/issue1
+
+$ tail -1 .git/logs/HEAD 
+73634bc0a03bd468325f406f9660323000d96ce3 73634bc0a03bd468325f406f9660323000d96ce3 shanghw <hwshang@yeah.net> 1415268063 +0800	checkout: moving from master to issue1
+```
+
+切换到issue1分支:
+
+ - 会修改HEAD指向issue1的head文件，
+ - 另外在log总文件 `.git/logs/HEAD` 中追加了一行切换分支的日志记录。
+ - 同时也会建立暂存区数据。
+
+```
+$ cat .git/refs/heads/master 
+33fb0b0f252aa53863096f4576b06dcaef5f173f
+
+$ tail -1 .git/logs/HEAD 
+73634bc0a03bd468325f406f9660323000d96ce3 33fb0b0f252aa53863096f4576b06dcaef5f173f shanghw <hwshang@yeah.net> 1415268502 +0800	merge issue1: Fast-forward
+
+$ tail -1 .git/logs/refs/heads/master 
+73634bc0a03bd468325f406f9660323000d96ce3 33fb0b0f252aa53863096f4576b06dcaef5f173f shanghw <hwshang@yeah.net> 1415268502 +0800	merge issue1: Fast-forward
+
+$ cat .git/ORIG_HEAD
+73634bc0a03bd468325f406f9660323000d96ce3
+```
+
+在issue1分支跟新并提交数据之后，切换回master进行合并操作:
+
+ -  创建一个合并commit对象。
+ -  在总log文件中追加一行合并的记录，父对象为合并前master的对象ID，所以得知这里的合并git自动选择了master分支为最佳合并基础。
+ -  在master分支的log中也追加了相同的记录。
+ - `.git/ORIG_HEAD` 文件中记录了操作之前的对象ID，用于做逆转操作。
+ - 暂存区也进行了更新。
+
+ 
+分支的删除则会删除`.git/refs/heads/issue1`  `.git/logs/refs/heads/issue1` 两个文件。
+ 

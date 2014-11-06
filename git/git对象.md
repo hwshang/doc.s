@@ -77,3 +77,35 @@ $ git cat-file -p "275d40d4dd92edd0f049b70d10ae3e07edac2903"
 > 使用 `git cat-file -p` 查看commit对象内容，可以查询到根目录的tree对象ID；
 > 再查看根目录tree对象的内容即为版本库根目录下的目录和文件信息。
 
+---
+
+### 对象库
+
+HEAD指针的commit对象ID获取
+
+```
+$ cat .git/HEAD 
+ref: refs/heads/master
+$ cat .git/refs/heads/master 
+73634bc0a03bd468325f406f9660323000d96ce3
+```
+
+对象ID为40为字符，对象的数据保存在 `.git/objects/` 目录中，ID前2位为子目录名称，后38位为子目录下文件的名称。
+对象文件中记录的就是对象包含的数据。
+
+```
+$ git cat-file -t 73634b
+commit
+
+$ git cat-file -p 73634b
+tree d129998fe12d98ef119c1210c693350b3512b837
+parent c3f53c017f46aaabd2eacfbfc8ad29d6c6be6432
+parent 79029cd2fae4f7c55f4f0a410e2972c9e5aa19af
+author shanghw <hwshang@yeah.net> 1415240913 +0800
+committer shanghw <hwshang@yeah.net> 1415240913 +0800
+
+Merge branch 'test'
+
+$ ls .git/objects/73/634bc0a03bd468325f406f9660323000d96ce3 
+.git/objects/73/634bc0a03bd468325f406f9660323000d96ce3
+```
