@@ -23,6 +23,10 @@ git配置方法
 
 包含状态信息，比较，日志
 
+[**对象**](https://github.com/hwshang/doc.s/git/git对象.md)
+
+git中对象的概念及信息查询方式
+
 [**分支**](https://github.com/hwshang/doc.s/git/git分支.md)
 
 [**应用**](https://github.com/hwshang/doc.s/git/git基础.md)
