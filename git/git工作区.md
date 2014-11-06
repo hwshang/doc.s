@@ -24,22 +24,16 @@
 
 `hooks` 项目的钩子脚本
 
-`index` 项目文件的状态，使用`git ls-files --stage`命令其查看内容
+`index` 项目文件的状态，保存暂存区信息
 
 `info` 
 
-`logs` 各refs的历史信息
+`logs` 各refs的历史信息，其中HEAD文件保存了所有log信息。
 
-`objects` 本地仓库的数据
-
-`packed-refs` 
+`objects` 本地仓库的对象数据存放目录，子目录为对象ID的前2位字符，对象ID的后38位是对应目录下的文件名。
 
 `refs` 关联分支和提交信息
 
-
-添加&提交：
-
-`git add`将文件信息更新到index文件中，`git commit`将index文件中的改变写入本地仓库。
 
 ***
 

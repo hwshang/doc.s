@@ -15,6 +15,7 @@ commit对象中包含了提交一个根目录的tree对象信息及其他提交�
 tree对象中包含了当前目录下所有文件(blob对象)和目录(tree对象)的索引信息；
 blob对象中包含了文件的数据内容。
 结构如下图:
+
 ![](http://git-scm.com/figures/18333fig0301-tn.png)
 
 ---
