@@ -27,11 +27,12 @@ git配置方法
 
 git中对象的概念及信息查询方式
 
-[**分支**](https://github.com/hwshang/doc.s/git/git分支.md)
+[**分支**](https://github.com/hwshang/doc.s/blob/master/git/git分支.md)
+
+git中分支的常见操作
 
 [**应用**](https://github.com/hwshang/doc.s/git/git基础.md)
 
-
 ---
 
-[阅读资料](http://git-scm.com/book/zh)
+[阅读资料及图片引用地址](http://git-scm.com/book/zh)
