@@ -23,6 +23,10 @@ git配置方法
 
 包含状态信息，比较，日志
 
+[**操作第三层**](https://github.com/hwshang/doc.s/blob/master/git/git操作第三层.md)
+
+包含重置，检出
+
 [**对象**](https://github.com/hwshang/doc.s/blob/master/git/git对象.md)
 
 git中对象的概念及信息查询方式
