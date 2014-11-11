@@ -173,6 +173,8 @@ $ git diff 4e491e master
 $ git diff be44377 master -- README.md
 ```
 
+> 记得 `--word-diff` 参数的作用
+
 ---
 
 ### 归档
