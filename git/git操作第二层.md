@@ -173,3 +173,26 @@ $ git diff 4e491e master
 $ git diff be44377 master -- README.md
 ```
 
+---
+
+### 归档
+
+针对git的文件归档，方便指定和忽略文件以及版本库文件(.git目录)
+
+```
+$ git archive -o last.zip HEAD
+```
+
+> 将HEAD的文件归档至当前目录的last.zip中
+
+```
+$ git archive -o be4437.tar be4437  css js README.md 
+```
+
+> 将指定版本的指定文件归档
+
+```
+$ git archive --prefix=v1.0/ --format=tar v1.0 | gzip >  v1.0.tar.gz
+```
+
+> 建立v1.0的目录，将标签为v1.0的文件归档，然后压缩

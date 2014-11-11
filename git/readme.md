@@ -21,7 +21,7 @@ git配置方法
 
 [**操作第二层**](https://github.com/hwshang/doc.s/blob/master/git/git操作第二层.md)
 
-包含状态信息，比较，日志
+包含状态信息，比较，日志，归档
 
 [**操作第三层**](https://github.com/hwshang/doc.s/blob/master/git/git操作第三层.md)
 
