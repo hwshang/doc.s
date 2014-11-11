@@ -140,3 +140,36 @@ $ git log -p -1
 |--author	| 仅显示指定作者相关的提交。 |
 |--committer	| 仅显示指定提交者相关的提交。 |
 
+
+---
+
+### 比较
+
+
+工作区与暂存区文件比较
+
+```
+$ git diff 
+```
+
+工作区与版本库文件比较
+
+```
+$ git diff 4e491e 
+```
+
+ 暂存区与版本库文件比较
+
+```
+$ git diff --cached HEAD
+$ git diff --cached 4e491e
+```
+
+版本之间的比较
+
+```
+$ git diff 4e491e HEAD
+$ git diff 4e491e master
+$ git diff be44377 master -- README.md
+```
+
