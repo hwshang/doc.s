@@ -188,7 +188,7 @@ $ git status
  - 全局性的忽略：通过配置变量 `git config --global core.excludesfile <ifnorefile>` 指定忽略文件来配置，对本地所有版本
  
 
-***`.gitignore`的格式规范 ***
+***.gitignore`的格式规范***
 
 - 所有空行或者以注释符号 ＃ 开头的行都会被 Git 忽略。
 - 可以使用标准的 glob 模式匹配，即 * 代表任意多个字符，? 代表一个字符， [] 代表可选字符。

@@ -27,6 +27,10 @@ git配置方法
 
 包含重置，检出
 
+[**操作第四层**](https://github.com/hwshang/doc.s/blob/master/git/git操作第四层.md)
+
+包含clone，remote，fetch，pull，post
+
 [**对象**](https://github.com/hwshang/doc.s/blob/master/git/git对象.md)
 
 git中对象的概念及信息查询方式
