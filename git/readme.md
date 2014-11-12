@@ -13,7 +13,7 @@ git配置方法
 
 [**版本库**](https://github.com/hwshang/doc.s/blob/master/git/git版本库.md)
 
-工作区介绍
+版本库`.git`目录，工作区介绍
 
 [**操作第一层**](https://github.com/hwshang/doc.s/blob/master/git/git操作第一层.md)
 
