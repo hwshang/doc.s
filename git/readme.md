@@ -11,7 +11,7 @@ git基础知识介绍
 
 git配置方法
 
-[**工作区**](https://github.com/hwshang/doc.s/blob/master/git/git工作区.md)
+[**版本库**](https://github.com/hwshang/doc.s/blob/master/git/git版本库.md)
 
 工作区介绍
 

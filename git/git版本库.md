@@ -1,4 +1,4 @@
-## 版本库工作区
+## 版本库
 
 ####.git目录
 
@@ -16,23 +16,23 @@
 
 `HEAD` 项目当前所处分支
 
-`branches` 
+`branches` 新版本git不再使用
 
 `config` 项目配置文件
 
-`description` 项目描述信息
+`description` 项目描述信息，仅供gitweb程序使用
 
 `hooks` 项目的钩子脚本
 
 `index` 项目文件的状态，保存暂存区信息
 
-`info` 
+`info` 保存了一份不希望在 `.gitignore` 文件中管理的忽略模式 (ignored patterns) 的全局可执行文件。
 
 `logs` 各refs的历史信息，其中HEAD文件保存了所有log信息，`git log` 命令指定不同的选项从中获取不同格式的log信息。
 
 `objects` 本地仓库的对象数据存放目录，子目录为对象ID的前2位字符，对象ID的后38位是对应目录下的文件名。
 
-`refs` 关联分支和提交信息。
+`refs` 存储指向数据(分支)的提交对象的指针。
 
 
 ***
