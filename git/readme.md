@@ -39,7 +39,9 @@ git中对象的概念及信息查询方式
 
 git中分支的常见操作
 
-[**应用**](https://github.com/hwshang/doc.s/git/git基础.md)
+[**gitosis**](https://github.com/hwshang/doc.s/blob/master/git/gitosis.md)
+
+git仓库管理工具gitosis
 
 ---
 
