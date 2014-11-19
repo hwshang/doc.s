@@ -48,6 +48,11 @@ git仓库/权限管理工具gitosis
 
 git仓库/权限管理工具gitolite
 
+
+[**etckeeper**](https://github.com/hwshang/doc.s/blob/master/git/etckeeper.md)
+
+基于git仓库的/etc目录持续备份工具etckeeper
+
 ---
 
 阅读资料及图片引用地址:
