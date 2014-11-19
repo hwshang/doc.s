@@ -41,7 +41,12 @@ git中分支的常见操作
 
 [**gitosis**](https://github.com/hwshang/doc.s/blob/master/git/gitosis.md)
 
-git仓库管理工具gitosis
+git仓库/权限管理工具gitosis
+
+
+[**gitolite**](https://github.com/hwshang/doc.s/blob/master/git/gitolite.md)
+
+git仓库/权限管理工具gitolite
 
 ---
 
