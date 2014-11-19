@@ -24,6 +24,8 @@ WARNING: /home/git/.ssh missing; creating a new one
     (this is normal on a brand new install)
 WARNING: /home/git/.ssh/authorized_keys missing; creating a new one
     (this is normal on a brand new install)
+
+$ rm /tmp/id_rsa.pub
 ```
 
 > 可以看到自动创建了`gitolite-admin` `testing` 两个repo，并在git用户的家目录下写入了客户端的公钥文件。
