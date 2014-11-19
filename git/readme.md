@@ -1,4 +1,4 @@
-### git 学习笔记
+### Git 学习笔记
 
 ---
 
@@ -50,4 +50,6 @@ git仓库/权限管理工具gitolite
 
 ---
 
-[阅读资料及图片引用地址](http://git-scm.com/book/zh)
+阅读资料及图片引用地址:
+[Pro Git](http://git-scm.com/book/)
+[Git权威指南](http://book.douban.com/subject/6526452/)
