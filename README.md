@@ -1,17 +1,7 @@
 ###  <i class="icon-file"></i> Documents
 
-
-
-> [**linux**](https://github.com/hwshang/doc.s/linux)
-
-
-> [**web**](https://github.com/hwshang/doc.s/web)
-
-
-> [**db**](https://github.com/hwshang/doc.s/db)
-
+> [**mysql**](https://github.com/hwshang/doc.s/blob/master/mysql/readme.md)
 
 > [**git**](https://github.com/hwshang/doc.s/blob/master/git/readme.md)
-
 
 > [**http**](https://github.com/hwshang/doc.s/blob/master/http/readme.md)
