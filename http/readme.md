@@ -13,3 +13,7 @@ http基础知识
 
 http协议及基于的TCP协议知识
 
+[**HTTP连接**](https://github.com/hwshang/doc.s/blob/master/http/http连接.md)
+
+http连接介绍
+
