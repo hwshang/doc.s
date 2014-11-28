@@ -26,19 +26,23 @@
 事物处理完成之后仍然保持在打开状态的TCP连接成为**持久连接**。
 
 **Keep-Alive**
+
 持久连接需要客户端和服务端都支持，客户端在首部中添加 `Connection: Keep-Alive` ，服务器会在响应中添加相同的首部，否则，客户端认为服务器不支持Keep-Alive，接受响应报文之后关闭连接。
 Keep-Alive可选(有Connection: Keep-Alive才会在 *响应报文* 中有Keep-Alive首部)首部的参数： `timeout=10` `max=30` 说明服务器最多还会为另外30个事务保持连接的开打状态，或者将打开状态保持到连接空闲了10s之后关闭。
 
 **当Keep-Alive遇到代理**
+
 代理服务器不会转发 `Connection` 和它的值的首部，比如 `Keep-Alive` 。不能处理并进行了转发 `Connection` 的代理称为 *盲中继* ，它欺骗了客户端和服务端都建立了 `Keep-Alive` 连接，自己却不能处理请求。  
 
 **Proxy-Connection**
+
 这是用来对应单个代理服务器不能识别`Connection` 的首部，代替HTTP原版的`Connection`。
 不能识别的代理，只管转发此首部，服务器和客户端也都会忽略。
 能够识别的代理，会将客户端发送的 `Proxy-Connection: Keep-Alive` 替换为 `Connection: Keep-Alive` 转发请求给服务器，三个角色之间就可以建立持久连接。
 如果客户端和服务端中间有多个代理，还是会有问题。
 
 **persistent connection**
+
 HTTP/1.1版本中，持久连接从选配变成为了标配。当需要关闭连接时发送请求首部添加 ` Connection: close` 。
 即使不发送` Connection: close` ，服务器也不会一直处于连接打开状态。
 
