@@ -7,16 +7,15 @@
 
 [**概述**](https://github.com/hwshang/doc.s/blob/master/http/http概述.md)
 
-http基础知识
 
 [**HTTP协议**](https://github.com/hwshang/doc.s/blob/master/http/http协议.md)
 
-http协议及基于的TCP协议知识
 
 [**HTTP连接**](https://github.com/hwshang/doc.s/blob/master/http/http连接.md)
 
-http连接介绍
 
 [**WEB服务器**](https://github.com/hwshang/doc.s/blob/master/http/WEB服务器.md)
 
-WEB服务器介绍
+
+[**HTTP代理**](https://github.com/hwshang/doc.s/blob/master/http/http代理.md)
+
