@@ -7,3 +7,5 @@
 > [**http**](https://github.com/hwshang/doc.s/blob/master/http/readme.md)
 
 > [**zabbix**](https://github.com/hwshang/doc.s/blob/master/zabbix/readme.md)
+
+> [**rpmbuild**](https://github.com/hwshang/doc.s/blob/master/rpmbuild/readme.md)
