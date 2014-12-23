@@ -18,3 +18,8 @@
 
 自己写php5.3的spec文件，在成功安装之后，要为php环境安装扩展模块出现了问题。官方的rpm会把扩展文件安装到 `/usr/lib64/php/modules/` 目录下，而编译之后的扩展模块目录在 `/usr/local/php-5.3.28/lib/php/extensions/no-debug-non-zts-20090626`  ，通过 `php-config --extension-dir` 查看。
 查了configure 的帮助命令，没有找到指定扩展路径的选项，在官方的spec中看到了对应的配置 `EXTENSION_DIR=%{_libdir}/php/modules; export EXTENSION_DIR` ，用在configure之前，这样生成的Makefile中就不是默认的配置了。
+
+### 环境
+
+- 使用普通用户执行rpmbuild 
+- 保持系统的干净。严格遵守：构建的rpm包依赖什么，就在系统中安装什么，因为环境中的文件对生成的rpm也有依赖影响。构建完成之后对其卸载，以免影响以后的构建。
