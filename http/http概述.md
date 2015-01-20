@@ -78,7 +78,7 @@ URL支持`片段(frag)` 组件，表示一个资源内部的片段，使用 `#` 
 
 通用首部：
 
-- connection 连接有关选项
+- connection 连接有关选项。用来管理持久连接，或者代理转发时须删除的首部字段
 - date 报文创建时间
 - MIME-Version MIME版本
 - via 显示报文经过的中间节点，即代理/网关
@@ -86,23 +86,27 @@ URL支持`片段(frag)` 组件，表示一个资源内部的片段，使用 `#` 
 缓存首部：
  
 - cache-control 缓存指示
+ - no-cache 在请求中指客户端不接收缓存过的响应，缓存服务器必须把客户端的请求转发给源服务器；在响应中指缓存服务器不能对资源进行缓存。
+ - max-age 指定资源缓存时长，值为0指不让缓存服务器缓存 。在HTTP/1.1中，会优先处理max-age，而忽略掉Expires首部。
+ - no-transform 缓存不能改变实体主体的媒体类型，防止缓存或者代理服务器压缩图片等文件。
 - pragma  不专用于缓存
 
 请求首部：
 
 - Client-IP 客户端IP
 - From 客户端Email地址
-- Host 接收请求的主机地址和端口号
+- Host 接收请求的主机地址和端口号。这是HTTP/1.1中 **唯一一个必须被包含的请求首部字段** 
 - Referer 当前请求URI文档的URL
 - User-Agent 发起请求的程序名称及版本
-- Accept 请求的MIME类型
-- Accept-Charset 请求使用的字符集
-- Accept-Encoding 请求使用的编码方式
-- Accept-Language 请求使用的语言
+- Accept 请求的MIME类型，以及类型相对优先级。使用 `q=权重值` 表示，使用 `;` 进行分隔。权重值的范围 0-1，1最大，为默认值。  
+- Accept-Charset 客户端支持的字符集，及相对优先级
+- Accept-Encoding 客户端支持的内容编码，及相对优先级
+- Accept-Language 客户端支持的语言，及相对优先级
 - Cookie 
-- Max-Forward 请求经过代理或网关的最大次数
+- Max-Forward 请求经过代理或网关的最大次数，为0的时候不再转发，直接响应
 - Proxy-Authorization 与代理认证使用
 - Proxy-Connection 与代理建立连接使用
+- TE 告知服务器客户端能够处理响应的传输编码方式，以及相对优先级
 
 响应首部：
 
@@ -118,9 +122,16 @@ URL支持`片段(frag)` 组件，表示一个资源内部的片段，使用 `#` 
 
 - Allow 可以对此实体执行的请求方法
 - Location 将接受端定向到资源的位置上
+- Content-Encoding 服务器对实体的主机部分选用的内容编码方式
 
 实体缓存首部：
 
 - Expires 实体不再有效，要从原始服务器再次获取此实体的日期和时间
 - Last-Modified 实体最后一次被修改的日期时间
 
+条件首部：
+
+- If-XXX 服务器接收到请求，判断条件为真才执行请求
+- If-Match 值与实体标记(ETag)的值一致，服务器才接收请求
+- If-None-Match 与If-Match相反，值不一致才处理请求
+- If-Range 与ETag的值一致才执行范围请求，否则返回全体资源
