@@ -6,7 +6,7 @@
 
 > [**http**](https://github.com/hwshang/doc.s/blob/master/http/readme.md)
 
-> [**TCP/IP**](https://github.com/hwshang/doc.s/blob/master/tcp-ip/readme.md)
+> [**IP**](https://github.com/hwshang/doc.s/blob/master/IP/readme.md)
 
 > [**zabbix**](https://github.com/hwshang/doc.s/blob/master/zabbix/readme.md)
 
