@@ -3,7 +3,7 @@
 # 2015.04.10
 
 Exec_date=$(date)
-Mail_addr='hwshang@yeah.net'
+Mail_addr='your mail@gmail.com'
 C_Index_name="nginx-access-$(date +%Y.%m.%d --date '-1 days ago')"
 D_Index_name="nginx-access-$(date +%Y.%m.%d --date '90 days ago')"
 ES_Url="http://localhost:9200"
