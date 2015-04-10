@@ -4,11 +4,11 @@
 
 环境及软件版本：
 
-OS: CentOS release 6.5
-Java: 1.8.0_31
-logstash-1.4.2-1_2c0f5a1.noarch
-elasticsearch-1.5.0-1.noarch
-kibana-4.0.1-linux-x64
+- OS: CentOS release 6.5
+- Java: 1.8.0_31
+- logstash-1.4.2-1_2c0f5a1.noarch
+- elasticsearch-1.5.0-1.noarch
+- kibana-4.0.1-linux-x64
 
 nginx访问日志格式：
 
