@@ -22,9 +22,11 @@ logstash配置文件： `logstash.conf`
 
 elasticsearch添加如下配置：
 
-`path.data: /data/elasticsearch/
+```
+path.data: /data/elasticsearch/
 action.auto_create_index: +nginx-access*,-*
-index.mapper.dynamic: false`
+index.mapper.dynamic: false
+```
 
 因为动态映射生成索引中某些字段格式有问题，所以通过定时任务执行脚本来创建索引，脚本：`lek_create_index.sh` ，索引映射json文件：`nginx-access.json`
 
