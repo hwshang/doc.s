@@ -32,7 +32,9 @@ log_format  access  '$remote_addr - $remote_user [$time_local] "$request" '
 logstash配置文件： `logstash.conf`
 
 > `output` 中的  `index` 为elasticsearch中索引名称，后边创建时需对应。
+
 > GeoLite databases 文件 `GeoLiteCity.dat` 需额外下载。
+
 > [Grok语法调试](http://grokdebug.herokuapp.com/)
 
 ### elasticsearch
