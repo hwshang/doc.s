@@ -2,7 +2,9 @@
 
 
 与传统数据库的概念对比
+
 Relational DB -> Databases -> Tables -> Rows -> Columns
+
 Elasticsearch -> Indices   -> Types  -> Documents -> Fields
 
 Elasticsearch支持的JSON数据类型
@@ -25,22 +27,29 @@ Elasticsearch支持的JSON数据类型
 ### 数据类型
 
 类型： `确切值` 及 `全文文本`
+
 为了方便在全文文本字段中进行这些类型的查询，Elasticsearch首先对文本分析(analyzes)，然后使用结果建立一个倒排索引。
+
 当你查询全文(full text)字段，查询将使用相同的分析器来分析查询字符串，以产生正确的词列表。
+
 当你查询一个确切值(exact value)字段，查询将不分析查询字符串，但是你可以自己指定。
 
 ### 倒排索引
 
 Elasticsearch使用 倒排索引(inverted index) 来做快速的全文搜索。
+
 倒排索引由在文档中出现的唯一的单词列表，以及对于每个单词在文档中的位置组成。
+
 当我们索引(index)一个文档，全文字段会被分析为单独的词来创建倒排索引。
 
 创建倒排索引：首先切分每个文档的content字段为单独的单词（我们把它们叫做词(terms)或者表征(tokens)）把所有的唯一词放入列表并排序。
+
 搜索的短语中单词和倒排索引进行匹配，相似度算法(similarity algorithm)匹配出相关性最高的文档（命中单词越多的文档相关性越高）。
 
 ### 分析
 
 分析(analysis)机制用于进行全文文本(Full Text)的分词，以建立供搜索用的反向索引。
+
 分析(analysis)是这样一个过程： 首先，表征化一个文本块为适用于倒排索引单独的词(term)，然后标准化这些词为标准形式，提高它们的“可搜索性”或“查全率”。
 
 这个工作是分析器(analyzer)完成的。一个分析器(analyzer)只是一个包装用于将三个功能放到一个包里。
@@ -66,13 +75,13 @@ Black-cats
 
 Elasticsearch支持以下简单字段类型：
 
-|  类型 | 	表示的数据类型 |
+|  类型 |   表示的数据类型 |
 | --- | --- |
 | String|string|
-|Whole number|	byte, short, integer, long|
-|Floating |point	float, double|
-|Boolean	|boolean|
-|Date	|date|
+|Whole number|  byte, short, integer, long|
+|Floating |point  float, double|
+|Boolean  |boolean|
+|Date |date|
 
 
 映射的最高一层被称为 根对象，它可能包含下面几项：
@@ -85,15 +94,16 @@ Elasticsearch支持以下简单字段类型：
 **属性**
 
 属性的三个最重要的设置：
-  type： 字段的数据类型，例如 string 和 date
-  index： 字段是否应当被当成全文来搜索（analyzed），或被当成一个准确的值（not_analyzed），还是完全不可被搜索（no）
-  analyzer： 确定在索引和或搜索时全文字段使用的 分析器。
+
+-  type： 字段的数据类型，例如 string 和 date
+-  index： 字段是否应当被当成全文来搜索（analyzed），或被当成一个准确的值（not_analyzed），还是完全不可被搜索（no）
+-  analyzer： 确定在索引和或搜索时全文字段使用的 分析器。
   
-> analyzed	首先分析这个字符串，然后索引。换言之，以全文形式索引此字段。
+> analyzed  首先分析这个字符串，然后索引。换言之，以全文形式索引此字段。
 
-> not_analyzed	索引这个字段，使之可以被搜索，但是索引内容和指定值一样。不分析此字段。
+> not_analyzed  索引这个字段，使之可以被搜索，但是索引内容和指定值一样。不分析此字段。
 
-> no	不索引这个字段。这个字段不能为搜索到。
+> no  不索引这个字段。这个字段不能为搜索到。
 
 > string类型字段默认值是analyzed。如果我们想映射字段为确切值，我们需要设置它为not_analyzed：
 其他简单类型——long、double、date等等——也接受index参数，但相应的值只能是no和not_analyzed，它们的值不能被分析。
@@ -101,16 +111,19 @@ Elasticsearch支持以下简单字段类型：
 **_source 字段**
 
 默认情况下，Elasticsearch 用 JSON 字符串来表示文档主体保存在 _source 字段中。_source 字段也会在写入硬盘前压缩。
-  搜索结果中能得到完整的文档 —— 不需要额外去别的数据源中查询文档
-  如果缺少 _source 字段，部分 更新 请求不会起作用
-  当你的映射有变化，而且你需要重新索引数据时，你可以直接在 Elasticsearch 中操作而不需要重新从别的数据源中取回数据。
-  你可以从 _source 中通过 get 或 search 请求取回部分字段，而不是整个文档。
-  这样更容易排查错误，因为你可以准确的看到每个文档中包含的内容，而不是只能从一堆 ID 中猜测他们的内容。
+
+-  搜索结果中能得到完整的文档 —— 不需要额外去别的数据源中查询文档
+-  如果缺少 _source 字段，部分 更新 请求不会起作用
+-  当你的映射有变化，而且你需要重新索引数据时，你可以直接在 Elasticsearch 中操作而不需要重新从别的数据源中取回数据。
+-  你可以从 _source 中通过 get 或 search 请求取回部分字段，而不是整个文档。
+-  这样更容易排查错误，因为你可以准确的看到每个文档中包含的内容，而不是只能从一堆 ID 中猜测他们的内容。
 
 **_all 字段**
 
 *query_string 在没有指定字段时默认用 _all 字段查询* 。
+
 _all 字段仅仅是一个经过分析的 string 字段。它使用默认的分析器来分析它的值，而不管这值本来所在的字段指定的分析器。而且像所有 string 类型字段一样，你可以配置 _all 字段使用的分析器。
+
 相对于完全禁用 _all 字段，可以先默认禁用 include_in_all 选项，而选定字段上启用 include_in_all。
 
 **动态映射**
@@ -140,36 +153,43 @@ dynamic 设置可以用在根对象或任何 object 对象上。你可以将 dyn
 ### 文档
 
 文档元数据
-_index	-- 文档存储的地方
-_type	-- 文档代表的对象的类
-_id		-- 文档的唯一标识
-_score	-- 相关性(relevance)评分，匹配对越高，得分越高，应用于about搜索
+
+- _index  -- 文档存储的地方
+- _type -- 文档代表的对象的类
+- _id   -- 文档的唯一标识
+- _score  -- 相关性(relevance)评分，匹配对越高，得分越高，应用于about搜索
 
 对文档的修改，其实是删除旧文档，索引新文档，并更新_version。
 
 
 **查询文档**
 
-GET /megacorp/employee/_search?q=last_name:Smith
+DSL查询(Query DSL) 。DSL(Domain Specific Language领域特定语言)
 
-DSL查询(Query DSL)
-DSL(Domain Specific Language领域特定语言)
+`GET /megacorp/employee/_search?q=last_name:Smith`
+
 DSL指定JSON做为请求体,不再使用查询字符串(query string)做为参数.
 
-聚合(aggregations)，它允许你在数据基础上生成复杂的统计。它很像SQL中的GROUP BY但是功能更强大
+聚合(aggregations)，它允许你在数据基础上生成复杂的统计。它很像SQL中的GROUP BY但是功能更强大。
 
 **更新文档**
 
 文档在Elasticsearch中是不可变的。如果需要更新已存在的文档，使用 index API 重建索引(reindex) 或者替换掉它，Elasticsearch把文档 _version增加了。
+
 在内部，Elasticsearch已经标记旧文档为删除并添加了一个完整的新文档。旧版本文档不会立即消失，但你也不能去访问它。Elasticsearch会在你继续索引更多数据时清理被删除的文档。
 
 **创建新文档**
 
 保证文档不存在。
+
+如果请求成功的创建了一个新文档，Elasticsearch将返回正常的元数据且响应状态码是201 Created。
+
+如果包含相同的_index、_type和_id的文档已经存在，Elasticsearch将返回409 Conflict响应状态码
+
+```
 PUT /website/blog/123?op_type=create
 PUT /website/blog/123/_create
-如果请求成功的创建了一个新文档，Elasticsearch将返回正常的元数据且响应状态码是201 Created。
-如果包含相同的_index、_type和_id的文档已经存在，Elasticsearch将返回409 Conflict响应状态码
+```
 
 **处理冲突**
 
@@ -185,17 +205,22 @@ Elasticsearch是分布式的，这些复制请求都是平行发送的，并无�
 Elsaticsearch的并发控制：
 
 1，乐观并发控制。
+
  利用_version的这一优点确保数据不会因为修改冲突而丢失。我们可以指定文档的verion来做想要的更改，所以在修改之前需要知道对象的version值是什么。
+ 
  判断标准：修改指定的版本号文档，如果那个版本号不是现在的，我们的请求就失败了。
+ 
  示例: `PUT /website/blog/1?version=1`
 
 2， 使用外部版本控制系统。 
+
  场景：使用一些其他的数据库做为主数据库，然后使用Elasticsearch搜索数据。
+
  在Elasticsearch的查询字符串后面添加version_type=external来使用这些版本号。版本号必须是整数，大于零小于9.2e+18——Java中的正的long。 
+
  判断标准：检查文档的_version值要小于修改请求中指定的版本，否则请求失败。
- 示例：
- 当前文档的_version: 5
- `PUT /website/blog/2?version=10&version_type=external`
+
+ 示例： 当前文档的_version: 5 `PUT /website/blog/2?version=10&version_type=external`
  
 **multi-get**
 
@@ -225,11 +250,12 @@ GET /website/blog/_mget
 > 每一行的数据不能包含未被转义的换行符，它们会干扰分析——这意味着JSON不能被美化打印。
 
 
-行为	解释
-create	当文档不存在时创建之。
-index	创建新文档或替换已有文档。
-update	局部更新文档。不需要请求体(request body)
-delete	删除一个文档。
+行为  解释
+
+- create  当文档不存在时创建之。
+- index 创建新文档或替换已有文档。
+- update  局部更新文档。不需要请求体(request body)
+- delete  删除一个文档。
 
 示例：
 
@@ -251,14 +277,16 @@ POST /_bulk
 **搜索方法**
 
 在所有索引的user和tweet中搜索， `/_all/user,tweet/_search`
+
 空搜索 GET /_search
 
 **响应结果**
 
-hits 文档实体
-took告诉我们整个搜索请求花费的毫秒数。
-shards 节点告诉我们参与查询的分片数（total字段），有多少是成功的（successful字段），有多少的是失败的（failed字段）
-time_out值告诉我们查询超时与否。如果响应速度比完整的结果更重要，你可以定义timeout参数为10或者10ms（10毫秒），或者1s（1秒）`GET /_search?timeout=10ms`
+- hits 文档实体
+- took告诉我们整个搜索请求花费的毫秒数。
+- shards 节点告诉我们参与查询的分片数（total字段），有多少是成功的（successful字段），有多少的是失败的（failed字段）
+- time_out值告诉我们查询超时与否。如果响应速度比完整的结果更重要，你可以定义timeout参数为10或者10ms（10毫秒），或者1s（1秒）`GET /_search?timeout=10ms`
+
 > 需要注意的是timeout不会停止执行查询，它仅仅告诉你目前顺利返回结果的节点然后关闭连接。在后台，其他分片可能依旧执行查询，尽管结果已经被发送。 使用超时是因为SLA,而不是因为你想中断执行长时间运行的查询。
 
 **分页**
