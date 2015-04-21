@@ -1,0 +1,233 @@
+{
+    "template" : "nginx-access*",
+    "order" : 1,
+    "settings" : {
+        "refresh_interval": "5s",
+        "number_of_shards" : "5",
+        "number_of_replicas": "1"
+    },
+    "aliases": {},
+    "mappings": {
+        "_default_": {
+            "_all": {
+                "enabled": true
+            },
+            "properties": {
+                "@version": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "geoip": {
+                    "dynamic": "true",
+                    "properties": {
+                        "location": {
+                            "type": "geo_point"
+                        }
+                    }
+                }
+            }
+        },
+        "nginx_access": {
+            "dynamic_templates": [
+                {
+                    "string_fields": {
+                        "mapping": {
+                            "index": "analyzed",
+                            "omit_norms": true,
+                            "type": "string",
+			    "index": "not_analyzed"
+                        },
+                        "match": "*",
+                        "match_mapping_type": "string"
+                    }
+                }
+            ],
+            "_all": {
+                "enabled": true
+            },
+            "properties": {
+                "@timestamp": {
+                    "type": "date",
+                    "format": "dateOptionalTime"
+                },
+                "@version": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "agent": {
+                    "type": "string",
+                    "fields": {
+                        "raw": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "ignore_above": 256
+                        }
+		    }
+                },
+                "auth": {
+                    "type": "string",
+		    "index": "not_analyzed"
+                },
+                "bytes": {
+                    "type": "double",
+		    "index": "not_analyzed"
+                },
+                "clientip": {
+                    "type": "string",
+		    "index": "not_analyzed"
+                },
+                "geoip": {
+                    "dynamic": "true",
+                    "properties": {
+                        "area_code": {
+                            "type": "long"
+                        },
+                        "city_name": {
+                            "type": "string",
+			    "index": "not_analyzed"
+                        },
+                        "continent_code": {
+                            "type": "string",
+			    "index": "not_analyzed"
+                        },
+                        "country_code2": {
+                            "type": "string",
+			    "index": "not_analyzed"
+                        },
+                        "country_code3": {
+                            "type": "string",
+			    "index": "not_analyzed"
+                        },
+                        "country_name": {
+                            "type": "string",
+			    "index": "not_analyzed"
+                        },
+                        "dma_code": {
+                            "type": "long"
+                        },
+                        "ip": {
+                            "type": "string",
+			    "index": "not_analyzed"
+                        },
+                        "latitude": {
+                            "type": "double"
+                        },
+                        "location": {
+                            "type": "geo_point"
+                        },
+                        "longitude": {
+                            "type": "double"
+                        },
+                        "postal_code": {
+                            "type": "string",
+			    "index": "not_analyzed"
+                        },
+                        "real_region_name": {
+                            "type": "string",
+			    "index": "not_analyzed"
+                        },
+                        "region_name": {
+                            "type": "string",
+			    "index": "not_analyzed"
+                        },
+                        "timezone": {
+                            "type": "string",
+			    "index": "not_analyzed"
+                        }
+                    }
+                },
+                "host": {
+                    "type": "string",
+		    "index": "not_analyzed"
+                },
+                "http_version": {
+                    "type": "string",
+		    "index": "not_analyzed"
+                },
+                "ident": {
+                    "type": "string",
+		    "index": "not_analyzed"
+                },
+                "message": {
+                    "type": "string",
+                    "fields": {
+                        "raw": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "ignore_above": 256
+                        }
+		    }
+                },
+                "method": {
+                    "type": "string",
+		    "index": "not_analyzed"
+                },
+                "path": {
+                    "type": "string",
+		    "index": "not_analyzed"
+                },
+                "referrer": {
+                    "type": "string",
+                    "fields": {
+                        "raw": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "ignore_above": 256
+                        }
+		    }
+                },
+                "request_body": {
+                    "type": "string",
+                    "fields": {
+                        "raw": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "ignore_above": 256
+                        }
+		    }
+                },
+                "request_file": {
+                    "type": "string",
+		    "analyzer" : "simple",
+                    "fields": {
+                        "raw": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "ignore_above": 256
+                        }
+		    }
+                },
+                "request_param": {
+                    "type": "string",
+                    "fields": {
+                        "raw": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "ignore_above": 256
+                        }
+		    }
+                },
+                "request_time": {
+                    "type": "double"
+                },
+                "response": {
+                    "type": "double",
+		    "index": "not_analyzed"
+                },
+                "timestamp": {
+                    "type": "string",
+		    "index": "not_analyzed"
+                },
+                "type": {
+                    "type": "string",
+		    "index": "not_analyzed"
+                },
+                "uid": {
+                    "type": "string",
+		    "index": "not_analyzed"
+                }
+            }
+        }
+    },
+    "warmers": {}
+}
