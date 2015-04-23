@@ -12,4 +12,4 @@
 
 > [**rpmbuild**](https://github.com/hwshang/doc.s/blob/master/rpmbuild/readme.md)
 
-> [**elasticsearch**](https://github.com/hwshang/doc.s/blob/master/elasticsearch/readme.md)
+> [**elasticsearch**](elasticsearch/readme.md)
