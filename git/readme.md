@@ -29,7 +29,7 @@ git配置方法
 
 [**操作第四层**](git操作第四层.md)
 
-包含clone，remote，fetch，pull，post
+包含clone，remote，fetch，pull，push
 
 [**对象**](git对象.md)
 

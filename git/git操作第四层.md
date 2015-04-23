@@ -127,7 +127,7 @@ $ git branch --set-upstream master origin/master
 
 ---
 
-###git post
+###git push
 
 用于推送本地分支的更新到远程分支上
 
