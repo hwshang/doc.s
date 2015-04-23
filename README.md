@@ -1,15 +1,15 @@
 ###  <i class="icon-file"></i> Documents
 
-> [**mysql**](https://github.com/hwshang/doc.s/blob/master/mysql/readme.md)
+> [**mysql**](mysql/readme.md)
 
-> [**git**](https://github.com/hwshang/doc.s/blob/master/git/readme.md)
+> [**git**](git/readme.md)
 
-> [**http**](https://github.com/hwshang/doc.s/blob/master/http/readme.md)
+> [**http**](http/readme.md)
 
-> [**IP**](https://github.com/hwshang/doc.s/blob/master/IP/readme.md)
+> [**IP**](IP/readme.md)
 
-> [**zabbix**](https://github.com/hwshang/doc.s/blob/master/zabbix/readme.md)
+> [**zabbix**](zabbix/readme.md)
 
-> [**rpmbuild**](https://github.com/hwshang/doc.s/blob/master/rpmbuild/readme.md)
+> [**rpmbuild**](rpmbuild/readme.md)
 
 > [**elasticsearch**](elasticsearch/readme.md)
