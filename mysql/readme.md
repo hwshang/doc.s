@@ -3,5 +3,5 @@
 ---
 
 
-[**字符编码**](https://github.com/hwshang/doc.s/blob/master/mysql/mysql字符编码.md)
+[**字符编码**](mysql字符编码.md)
 
